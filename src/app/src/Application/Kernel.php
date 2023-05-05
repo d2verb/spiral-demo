@@ -91,8 +91,5 @@ class Kernel extends \Spiral\Framework\Kernel
         PrototypeBootloader::class,
     ];
 
-    protected const APP = [
-        // User Domain
-        Bootloader\PersistenceBootloader::class,
-    ];
+    protected const APP = [];
 }

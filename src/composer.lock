@@ -1308,16 +1308,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v3.22.3",
+            "version": "v3.22.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "0edeee0cc2e2991706e16ab60c7d224e5c0241ba"
+                "reference": "e0768e89d3e336da07c369a6ffc81fae2b38a009"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/0edeee0cc2e2991706e16ab60c7d224e5c0241ba",
-                "reference": "0edeee0cc2e2991706e16ab60c7d224e5c0241ba",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/e0768e89d3e336da07c369a6ffc81fae2b38a009",
+                "reference": "e0768e89d3e336da07c369a6ffc81fae2b38a009",
                 "shasum": ""
             },
             "require": {
@@ -1346,9 +1346,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.22.3"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.22.4"
             },
-            "time": "2023-04-12T23:38:34+00:00"
+            "time": "2023-05-04T18:02:56+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -9439,16 +9439,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "5.10.0",
+            "version": "5.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356"
+                "reference": "c9b192ab8400fdaf04b2b13d110575adc879aa90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356",
-                "reference": "a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/c9b192ab8400fdaf04b2b13d110575adc879aa90",
+                "reference": "c9b192ab8400fdaf04b2b13d110575adc879aa90",
                 "shasum": ""
             },
             "require": {
@@ -9539,9 +9539,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vimeo/psalm/issues",
-                "source": "https://github.com/vimeo/psalm/tree/5.10.0"
+                "source": "https://github.com/vimeo/psalm/tree/5.11.0"
             },
-            "time": "2023-05-02T17:20:34+00:00"
+            "time": "2023-05-04T21:35:44+00:00"
         },
         {
             "name": "webmozart/assert",
