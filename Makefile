@@ -8,4 +8,4 @@ down:
 	docker compose down
 
 bash:
-	docker compose exec app bash
+	docker compose exec app sudo -u app bash

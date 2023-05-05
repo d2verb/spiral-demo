@@ -6,8 +6,8 @@ ARG USERID
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 RUN apt update \
-    && apt install -y git unzip procps \
-    && docker-php-ext-install sockets pdo_mysql \
+    && apt install -y git unzip libonig-dev libcurl4-openssl-dev libzip-dev vim procps sudo \
+    && docker-php-ext-install mbstring sockets curl zip pdo_mysql \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 

@@ -20,7 +20,6 @@ use Spiral\Validation\Bootloader\ValidationBootloader;
 use Spiral\Validator\Bootloader\ValidatorBootloader;
 use Spiral\Views\Bootloader\ViewsBootloader;
 use Spiral\YiiErrorHandler\Bootloader\YiiErrorHandlerBootloader;
-use Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader;
 
 class Kernel extends \Spiral\Framework\Kernel
 {
@@ -68,9 +67,6 @@ class Kernel extends \Spiral\Framework\Kernel
         CycleBridge\CycleOrmBootloader::class,
         CycleBridge\AnnotatedBootloader::class,
 
-        // Seeder
-        DatabaseSeederBootloader::class,
-
         // Views and view translation
         ViewsBootloader::class,
         TranslatedCacheBootloader::class,
@@ -95,8 +91,5 @@ class Kernel extends \Spiral\Framework\Kernel
         PrototypeBootloader::class,
     ];
 
-    protected const APP = [
-        // User Domain
-        Bootloader\PersistenceBootloader::class,
-    ];
+    protected const APP = [];
 }
