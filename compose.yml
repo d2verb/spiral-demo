@@ -5,6 +5,7 @@ services:
       dockerfile: ./docker/app/Dockerfile
     volumes:
       - ./src:/src
+      - ./docker/app/php.ini:/usr/local/etc/php/php.ini
     ports:
       - 8000:8000
     tty: true
