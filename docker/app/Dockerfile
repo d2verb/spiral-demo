@@ -16,4 +16,4 @@ RUN useradd -ms /bin/bash --no-user-group -g $GROUPID -u $USERID app
 
 WORKDIR /src
 
-CMD ["./rr", "serve"]
+ENTRYPOINT ["./rr", "serve"]
