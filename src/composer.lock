@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0af15b06b0b62fc8fea9f24dff52c7b2",
+    "content-hash": "96413cd2a924cc5b8dfd5edab0eab54a",
     "packages": [
         {
             "name": "alexkart/curl-builder",
@@ -470,6 +470,51 @@
                 }
             ],
             "time": "2023-03-07T20:16:21+00:00"
+        },
+        {
+            "name": "cycle/entity-behavior",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cycle/entity-behavior.git",
+                "reference": "60cc56f96f719a459636d9ff596b58defff7a0b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cycle/entity-behavior/zipball/60cc56f96f719a459636d9ff596b58defff7a0b0",
+                "reference": "60cc56f96f719a459636d9ff596b58defff7a0b0",
+                "shasum": ""
+            },
+            "require": {
+                "cycle/orm": "^2.0",
+                "cycle/schema-builder": "^2.0",
+                "php": ">=8.0",
+                "psr/container": "^1.0|^2.0",
+                "psr/event-dispatcher": "^1",
+                "yiisoft/injector": "^1.0"
+            },
+            "require-dev": {
+                "cycle/annotated": "^3.0",
+                "phpunit/phpunit": "^9.5",
+                "ramsey/uuid": "^4.0",
+                "spiral/tokenizer": "^2.8",
+                "vimeo/psalm": "^4.13"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cycle\\ORM\\Entity\\Behavior\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/cycle/entity-behavior/issues",
+                "source": "https://github.com/cycle/entity-behavior/tree/1.1.1"
+            },
+            "time": "2022-02-18T22:54:51+00:00"
         },
         {
             "name": "cycle/migrations",

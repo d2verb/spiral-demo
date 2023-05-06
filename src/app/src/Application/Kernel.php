@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application;
 
+use App\Application\Bootloader\EntityBehaviorBootloader;
 use Spiral\Boot\Bootloader\CoreBootloader;
 use Spiral\Bootloader as Framework;
 use Spiral\Bootloader\Views\TranslatedCacheBootloader;
@@ -66,6 +67,7 @@ class Kernel extends \Spiral\Framework\Kernel
         CycleBridge\SchemaBootloader::class,
         CycleBridge\CycleOrmBootloader::class,
         CycleBridge\AnnotatedBootloader::class,
+        EntityBehaviorBootloader::class,
 
         // Views and view translation
         ViewsBootloader::class,
