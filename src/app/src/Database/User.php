@@ -18,9 +18,12 @@ class User
     #[Column(type: 'uuid', primary: true)]
     public string $id;
 
-    #[Column(type: 'string')]
-    public string $name;
+    public function __construct(
+        #[Column(type: 'string')]
+        public string $name,
 
-    #[Column(type: 'string')]
-    public string $email;
+        #[Column(type: 'string')]
+        public string $email
+    ) {
+    }
 }
