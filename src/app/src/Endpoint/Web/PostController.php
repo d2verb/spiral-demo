@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Endpoint\Web;
 
+use App\Database\Post;
+use Psr\Http\Message\ResponseInterface;
 use Spiral\Http\Exception\ClientException\NotFoundException;
 use Spiral\Prototype\Traits\PrototypeTrait;
 use Spiral\Router\Annotation\Route;
@@ -24,24 +26,13 @@ class PostController
     }
 
     #[Route(route: '/api/post/<id>', name: 'post.get', methods: 'GET')]
-    public function get(string $id): array
+    public function get(string $id): ResponseInterface
     {
-        /** @var Post $post */
         $post = $this->posts->findByPK($id);
         if ($post === null) {
             throw new NotFoundException('post not found');
         }
 
-        return [
-            'post' => [
-                'id'      => $post->id,
-                'author'  => [
-                    'id'   => $post->author->id,
-                    'name' => $post->author->name
-                ],
-                'title'   => $post->title,
-                'content' => $post->content,
-            ]
-        ];
+        return $this->postView->json($post);
     }
 }
