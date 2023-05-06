@@ -35,4 +35,13 @@ class PostController
 
         return $this->postView->json($post);
     }
+
+    #[Route(route: '/api/post', name: 'post.list', methods: 'GET')]
+    public function list(): array
+    {
+        $posts = $this->posts->findAllWithAuthor();
+        return [
+            'posts' => array_map([$this->postView, 'map'], $posts->fetchAll()),
+        ];
+    }
 }
