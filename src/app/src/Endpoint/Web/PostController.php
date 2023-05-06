@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Endpoint\Web;
 
-use App\Database\Post;
 use Psr\Http\Message\ResponseInterface;
+use Spiral\DataGrid\GridFactory;
 use Spiral\Http\Exception\ClientException\NotFoundException;
 use Spiral\Prototype\Traits\PrototypeTrait;
 use Spiral\Router\Annotation\Route;
@@ -37,11 +37,14 @@ class PostController
     }
 
     #[Route(route: '/api/post', name: 'post.list', methods: 'GET')]
-    public function list(): array
+    public function list(GridFactory $grids): array
     {
-        $posts = $this->posts->findAllWithAuthor();
+        $grid = $grids->create($this->posts->findAllWithAuthor(), $this->postGrid);
         return [
-            'posts' => array_map([$this->postView, 'map'], $posts->fetchAll()),
+            'posts' => array_map(
+                [$this->postView, 'map'],
+                iterator_to_array($grid->getIterator())
+            ),
         ];
     }
 }

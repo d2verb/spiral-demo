@@ -9,6 +9,8 @@ use Spiral\Boot\Bootloader\CoreBootloader;
 use Spiral\Bootloader as Framework;
 use Spiral\Bootloader\Views\TranslatedCacheBootloader;
 use Spiral\Cycle\Bootloader as CycleBridge;
+use Spiral\Cycle\Bootloader\DataGridBootloader;
+use Spiral\DataGrid\Bootloader\GridBootloader;
 use Spiral\DotEnv\Bootloader\DotenvBootloader;
 use Spiral\Monolog\Bootloader\MonologBootloader;
 use Spiral\Nyholm\Bootloader\NyholmBootloader;
@@ -68,6 +70,10 @@ class Kernel extends \Spiral\Framework\Kernel
         CycleBridge\CycleOrmBootloader::class,
         CycleBridge\AnnotatedBootloader::class,
         EntityBehaviorBootloader::class,
+
+        // DataGrid
+        GridBootloader::class,
+        DataGridBootloader::class,
 
         // Views and view translation
         ViewsBootloader::class,
