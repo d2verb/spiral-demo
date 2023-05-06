@@ -23,7 +23,7 @@ use Ramsey\Uuid\Uuid;
 class Comment
 {
     #[Column(type: 'uuid', primary: true)]
-    public int $id;
+    public string $id;
 
     public function __construct(
         #[Column(type: 'string')]
@@ -41,7 +41,7 @@ class Comment
     {
         $pkColumn = 'id';
         if (!isset($event->state->getData()[$pkColumn])) {
-            $event->state->register($pkColumn, Uuid::uuid7());
+            $event->state->register($pkColumn, Uuid::uuid7()->toString());
         }
     }
 }

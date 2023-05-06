@@ -91,6 +91,9 @@ class Kernel extends \Spiral\Framework\Kernel
 
         // Fast code prototyping
         PrototypeBootloader::class,
+
+        // Seeder
+        \Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader::class,
     ];
 
     protected const APP = [];

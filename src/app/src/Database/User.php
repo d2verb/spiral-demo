@@ -38,7 +38,7 @@ class User
     {
         $pkColumn = 'id';
         if (!isset($event->state->getData()[$pkColumn])) {
-            $event->state->register($pkColumn, Uuid::uuid7());
+            $event->state->register($pkColumn, Uuid::uuid7()->toString());
         }
     }
 }
