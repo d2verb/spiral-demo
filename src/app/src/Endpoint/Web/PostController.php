@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Endpoint\Web;
 
 use App\Database\Post;
+use App\Endpoint\Web\Filter\CommentFilter;
 use Psr\Http\Message\ResponseInterface;
 use Spiral\DataGrid\GridFactory;
 use Spiral\Prototype\Traits\PrototypeTrait;
@@ -41,5 +42,17 @@ class PostController
                 iterator_to_array($grid->getIterator())
             ),
         ];
+    }
+
+    #[Route(route: '/api/post/<post>/comment', name: 'post.comment', methods: 'POST')]
+    public function comment(Post $post, CommentFilter $commentFilter): array
+    {
+        $this->commentService->comment(
+            $post,
+            $this->users->findOne(),
+            $commentFilter->message
+        );
+
+        return ['status' => 201];
     }
 }
