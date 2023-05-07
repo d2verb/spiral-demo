@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\Application;
 
+use App\Application\Bootloader\AppBootloader;
+use App\Application\Bootloader\EntityBehaviorBootloader;
 use Spiral\Boot\Bootloader\CoreBootloader;
 use Spiral\Bootloader as Framework;
 use Spiral\Bootloader\Views\TranslatedCacheBootloader;
 use Spiral\Cycle\Bootloader as CycleBridge;
+use Spiral\Cycle\Bootloader\DataGridBootloader;
+use Spiral\DataGrid\Bootloader\GridBootloader;
 use Spiral\DotEnv\Bootloader\DotenvBootloader;
 use Spiral\Monolog\Bootloader\MonologBootloader;
 use Spiral\Nyholm\Bootloader\NyholmBootloader;
@@ -66,6 +70,11 @@ class Kernel extends \Spiral\Framework\Kernel
         CycleBridge\SchemaBootloader::class,
         CycleBridge\CycleOrmBootloader::class,
         CycleBridge\AnnotatedBootloader::class,
+        EntityBehaviorBootloader::class,
+
+        // DataGrid
+        GridBootloader::class,
+        DataGridBootloader::class,
 
         // Views and view translation
         ViewsBootloader::class,
@@ -89,7 +98,12 @@ class Kernel extends \Spiral\Framework\Kernel
 
         // Fast code prototyping
         PrototypeBootloader::class,
+
+        // Seeder
+        \Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader::class,
     ];
 
-    protected const APP = [];
+    protected const APP = [
+        AppBootloader::class,
+    ];
 }

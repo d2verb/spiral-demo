@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Repository;
+
+use App\Database\Post;
+use Cycle\ORM\Select;
+use Cycle\ORM\Select\QueryBuilder;
+use Cycle\ORM\Select\Repository;
+use Spiral\Prototype\Annotation\Prototyped;
+
+#[Prototyped(property: 'posts')]
+class PostRepository extends Repository
+{
+    public function findAllWithAuthor(): Select
+    {
+        return $this->select()->load('author');
+    }
+
+    public function findOneWithComments(string $id): ?Post
+    {
+        return $this
+            ->select()
+            ->wherePk($id)
+            ->load('author')
+            ->load(
+                'comments.author',
+                [
+                    'load' => function (QueryBuilder $q) {
+                        $q->orderBy('id', 'DESC');
+                    }
+                ]
+            )
+            ->fetchOne();
+    }
+}
