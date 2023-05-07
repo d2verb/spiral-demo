@@ -8,6 +8,7 @@ use App\Database\Post;
 use App\Endpoint\Web\Filter\CommentFilter;
 use Psr\Http\Message\ResponseInterface;
 use Spiral\DataGrid\GridFactory;
+use Spiral\Http\Exception\ClientException\NotFoundException;
 use Spiral\Prototype\Traits\PrototypeTrait;
 use Spiral\Router\Annotation\Route;
 
@@ -54,5 +55,24 @@ class PostController
         );
 
         return ['status' => 201];
+    }
+
+    #[Route(route: '/posts', name: 'post.all', methods: 'GET')]
+    public function all(GridFactory $grids): string
+    {
+        $grid = $grids->create($this->posts->findAllWithAuthor(), $this->postGrid);
+
+        return $this->views->render('posts', ['posts' => $grid]);
+    }
+
+    #[Route(route: '/post/<id>', name: 'post.view', methods: 'GET')]
+    public function view(string $id): string
+    {
+        $post = $this->posts->findOneWithComments($id);
+        if ($post === null) {
+            throw new NotFoundException();
+        }
+
+        return $this->views->render('post', ['post' => $post]);
     }
 }
