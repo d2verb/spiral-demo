@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application;
 
+use App\Application\Bootloader\AppBootloader;
 use App\Application\Bootloader\EntityBehaviorBootloader;
 use Spiral\Boot\Bootloader\CoreBootloader;
 use Spiral\Bootloader as Framework;
@@ -102,5 +103,7 @@ class Kernel extends \Spiral\Framework\Kernel
         \Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader::class,
     ];
 
-    protected const APP = [];
+    protected const APP = [
+        AppBootloader::class,
+    ];
 }
